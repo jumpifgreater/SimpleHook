@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{b9662823-8d57-4497-98cc-5d960847d381}</ProjectGuid>
+    <RootNamespace>SimpleHook</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>build</OutDir>
+    <IntDir>build\inter</IntDir>
+    <IncludePath>$(SolutionDir)src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>build</OutDir>
+    <IntDir>build\inter</IntDir>
+    <IncludePath>$(SolutionDir)src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdclatest</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(SolutionDir)ext\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(SolutionDir)ext\cpr.lib;$(SolutionDir)ext\libcurl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdclatest</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(SolutionDir)ext\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(SolutionDir)ext\cpr.lib;$(SolutionDir)ext\libcurl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Library Include="ext\cpr.lib" />
+    <Library Include="ext\libcurl.lib" />
+    <Library Include="ext\zlib.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ext\include\cpr\accept_encoding.h" />
+    <ClInclude Include="ext\include\cpr\api.h" />
+    <ClInclude Include="ext\include\cpr\async.h" />
+    <ClInclude Include="ext\include\cpr\async_wrapper.h" />
+    <ClInclude Include="ext\include\cpr\auth.h" />
+    <ClInclude Include="ext\include\cpr\bearer.h" />
+    <ClInclude Include="ext\include\cpr\body.h" />
+    <ClInclude Include="ext\include\cpr\body_view.h" />
+    <ClInclude Include="ext\include\cpr\buffer.h" />
+    <ClInclude Include="ext\include\cpr\callback.h" />
+    <ClInclude Include="ext\include\cpr\cert_info.h" />
+    <ClInclude Include="ext\include\cpr\connection_pool.h" />
+    <ClInclude Include="ext\include\cpr\connect_timeout.h" />
+    <ClInclude Include="ext\include\cpr\cookies.h" />
+    <ClInclude Include="ext\include\cpr\cpr.h" />
+    <ClInclude Include="ext\include\cpr\cprtypes.h" />
+    <ClInclude Include="ext\include\cpr\cprver.h" />
+    <ClInclude Include="ext\include\cpr\curlholder.h" />
+    <ClInclude Include="ext\include\cpr\curlmultiholder.h" />
+    <ClInclude Include="ext\include\cpr\curl_container.h" />
+    <ClInclude Include="ext\include\cpr\error.h" />
+    <ClInclude Include="ext\include\cpr\file.h" />
+    <ClInclude Include="ext\include\cpr\filesystem.h" />
+    <ClInclude Include="ext\include\cpr\http_version.h" />
+    <ClInclude Include="ext\include\cpr\interceptor.h" />
+    <ClInclude Include="ext\include\cpr\interface.h" />
+    <ClInclude Include="ext\include\cpr\limit_rate.h" />
+    <ClInclude Include="ext\include\cpr\local_port.h" />
+    <ClInclude Include="ext\include\cpr\local_port_range.h" />
+    <ClInclude Include="ext\include\cpr\low_speed.h" />
+    <ClInclude Include="ext\include\cpr\multipart.h" />
+    <ClInclude Include="ext\include\cpr\multiperform.h" />
+    <ClInclude Include="ext\include\cpr\parameters.h" />
+    <ClInclude Include="ext\include\cpr\payload.h" />
+    <ClInclude Include="ext\include\cpr\proxies.h" />
+    <ClInclude Include="ext\include\cpr\proxyauth.h" />
+    <ClInclude Include="ext\include\cpr\range.h" />
+    <ClInclude Include="ext\include\cpr\redirect.h" />
+    <ClInclude Include="ext\include\cpr\reserve_size.h" />
+    <ClInclude Include="ext\include\cpr\resolve.h" />
+    <ClInclude Include="ext\include\cpr\response.h" />
+    <ClInclude Include="ext\include\cpr\secure_string.h" />
+    <ClInclude Include="ext\include\cpr\session.h" />
+    <ClInclude Include="ext\include\cpr\singleton.h" />
+    <ClInclude Include="ext\include\cpr\sse.h" />
+    <ClInclude Include="ext\include\cpr\ssl_ctx.h" />
+    <ClInclude Include="ext\include\cpr\ssl_options.h" />
+    <ClInclude Include="ext\include\cpr\status_codes.h" />
+    <ClInclude Include="ext\include\cpr\threadpool.h" />
+    <ClInclude Include="ext\include\cpr\timeout.h" />
+    <ClInclude Include="ext\include\cpr\unix_socket.h" />
+    <ClInclude Include="ext\include\cpr\user_agent.h" />
+    <ClInclude Include="ext\include\cpr\util.h" />
+    <ClInclude Include="ext\include\cpr\verbose.h" />
+    <ClInclude Include="ext\include\curl\curl.h" />
+    <ClInclude Include="ext\include\curl\curlver.h" />
+    <ClInclude Include="ext\include\curl\easy.h" />
+    <ClInclude Include="ext\include\curl\header.h" />
+    <ClInclude Include="ext\include\curl\mprintf.h" />
+    <ClInclude Include="ext\include\curl\multi.h" />
+    <ClInclude Include="ext\include\curl\options.h" />
+    <ClInclude Include="ext\include\curl\stdcheaders.h" />
+    <ClInclude Include="ext\include\curl\system.h" />
+    <ClInclude Include="ext\include\curl\typecheck-gcc.h" />
+    <ClInclude Include="ext\include\curl\urlapi.h" />
+    <ClInclude Include="ext\include\curl\websockets.h" />
+    <ClInclude Include="src\webhook\Author.h" />
+    <ClInclude Include="src\webhook\Colour.h" />
+    <ClInclude Include="src\webhook\EmbedObject.h" />
+    <ClInclude Include="src\webhook\Field.h" />
+    <ClInclude Include="src\webhook\Footer.h" />
+    <ClInclude Include="src\webhook\Image.h" />
+    <ClInclude Include="src\webhook\JsonObject.h" />
+    <ClInclude Include="src\webhook\Thumbnail.h" />
+    <ClInclude Include="src\webhook\Webhook.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\example.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
