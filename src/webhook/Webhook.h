@@ -13,7 +13,7 @@ class Webhook
 public:
     Webhook(std::string url)
     {
-        if (!url.starts_with("https://discord.com/api/webhooks/" && !url.starts_with("https://canary.discord.com/api/webhooks/")))
+        if (!url.starts_with("https://discord.com/api/webhooks/") && !url.starts_with("https://canary.discord.com/api/webhooks/"))
         {
             std::printf("invalid webhook\n");
             Sleep(2000);
